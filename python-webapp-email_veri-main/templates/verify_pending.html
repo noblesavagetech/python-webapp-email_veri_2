@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Verification Required{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('auth.logout') }}" class="logout-link">Logout</a>
+
+<h1>⚠️ Email Verification Required</h1>
+
+<div class="info-box">
+    <p style="margin-bottom: 10px;"><strong>Your email:</strong> {{ current_user.email }}</p>
+    <p>You must verify your email address before accessing the dashboard.</p>
+</div>
+
+<p style="color: #666; margin-bottom: 20px;">
+    Please check your inbox for the verification email we sent you. Click the link in the email to verify your account.
+</p>
+
+<p style="color: #999; font-size: 14px;">
+    If you didn't receive the email, check your spam folder or contact support.
+</p>
+{% endblock %}

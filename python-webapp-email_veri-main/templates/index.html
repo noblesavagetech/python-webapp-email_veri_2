@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to BBA Services{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <h1 style="font-size: 2.5em; margin-bottom: 10px;">Welcome to BBA Services</h1>
+    <p style="color: #666; font-size: 1.2em; margin-bottom: 40px;">Your trusted platform for secure account management</p>
+</div>
+
+<div class="info-box" style="margin-bottom: 30px;">
+    <h2 style="margin-bottom: 15px;">🚀 Why Choose Us?</h2>
+    <ul style="margin-left: 20px; color: #555; line-height: 1.8;">
+        <li><strong>Secure Authentication</strong> - Enterprise-grade password encryption</li>
+        <li><strong>Email Verification</strong> - Confirm your identity with verified email</li>
+        <li><strong>User Dashboard</strong> - Manage your account in one place</li>
+        <li><strong>Privacy First</strong> - Your data is protected and never shared</li>
+        <li><strong>24/7 Access</strong> - Log in anytime, anywhere</li>
+    </ul>
+</div>
+
+<div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 30px;">
+    <h2 style="margin-bottom: 15px; text-align: center;">📋 About Us</h2>
+    <p style="color: #555; line-height: 1.8; text-align: center;">
+        BBA Services provides a secure and reliable platform for managing your account. 
+        We use industry-standard security practices including email verification, 
+        encrypted password storage, and secure session management to protect your information. 
+        Our platform is built with modern web technologies to ensure fast, reliable, 
+        and secure access to your account.
+    </p>
+</div>
+
+<div style="display: flex; gap: 15px; margin-top: 40px;">
+    <a href="{{ url_for('auth.signup') }}" style="flex: 1; text-align: center; padding: 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        Get Started
+    </a>
+    <a href="{{ url_for('auth.login') }}" style="flex: 1; text-align: center; padding: 16px; background: white; color: #667eea; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 18px; border: 2px solid #667eea; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        Sign In
+    </a>
+</div>
+
+<p style="text-align: center; margin-top: 30px; color: #999; font-size: 14px;">
+    Already have an account? <a href="{{ url_for('auth.login') }}" style="color: #667eea; font-weight: 600;">Log in here</a>
+</p>
+{% endblock %}

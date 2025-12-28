@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Check Your Email{% endblock %}
+
+{% block content %}
+<h1>📧 Check Your Email</h1>
+
+<div class="info-box">
+    <p style="margin-bottom: 10px;"><strong>Email sent to:</strong> {{ email }}</p>
+    <p>We've sent you a verification link. Please check your inbox and click the link to verify your email address.</p>
+</div>
+
+<p style="color: #666; margin-bottom: 20px;">
+    The verification link will expire in 24 hours. If you don't see the email, check your spam folder.
+</p>
+
+<div class="link">
+    <a href="{{ url_for('auth.login') }}">Back to Login</a>
+</div>
+{% endblock %}

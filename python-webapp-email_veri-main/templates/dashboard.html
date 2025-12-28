@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - BBA Services{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+    <h1 style="margin: 0;">👋 Welcome Back!</h1>
+    <a href="{{ url_for('auth.logout') }}" style="background: #dc3545; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 600;">
+        Logout
+    </a>
+</div>
+
+<div class="info-box" style="margin-bottom: 25px;">
+    <h2 style="margin-bottom: 15px; color: #667eea;">📊 Account Overview</h2>
+    <div style="display: grid; gap: 15px;">
+        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
+            <span style="color: #666; font-weight: 500;">Email Address:</span>
+            <span style="font-weight: 600;">{{ current_user.email }}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
+            <span style="color: #666; font-weight: 500;">Verification Status:</span>
+            <span style="color: #28a745; font-weight: 600;">✓ Verified</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
+            <span style="color: #666; font-weight: 500;">Member Since:</span>
+            <span style="font-weight: 600;">{{ current_user.created_at.strftime('%B %d, %Y') if current_user.created_at else 'N/A' }}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+            <span style="color: #666; font-weight: 500;">Account ID:</span>
+            <span style="font-weight: 600; font-family: monospace;">#{{ current_user.id }}</span>
+        </div>
+    </div>
+</div>
+
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px; margin-bottom: 25px;">
+    <h2 style="margin-bottom: 10px; color: white;">🎉 You're All Set!</h2>
+    <p style="margin: 0; opacity: 0.95;">
+        Your email has been verified and your account is fully active. 
+        You now have complete access to all BBA Services features.
+    </p>
+</div>
+
+<div style="background: #f8f9fa; padding: 25px; border-radius: 8px; border-left: 4px solid #667eea;">
+    <h3 style="margin-bottom: 15px;">🔒 Security Information</h3>
+    <ul style="margin-left: 20px; color: #555; line-height: 1.8;">
+        <li>Your password is encrypted using industry-standard PBKDF2 hashing</li>
+        <li>Your session is secured with HTTP-only cookies</li>
+        <li>All data transmission is protected</li>
+        <li>Your email address has been verified and confirmed</li>
+    </ul>
+</div>
+{% endblock %}

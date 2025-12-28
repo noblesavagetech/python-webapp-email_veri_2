@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Email Verification Required - BBA Services{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('auth.logout') }}" class="logout-link">Logout</a>
+
+<h1>📧 Verify Your Email</h1>
+
+<div class="info-box">
+    <p style="margin-bottom: 10px;"><strong>Your email:</strong> {{ current_user.email }}</p>
+    <p>To access your dashboard, please verify your email address by clicking the link we sent you.</p>
+</div>
+
+<div style="background: #fff3cd; border: 1px solid #ffc107; color: #856404; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <strong>⚠️ Important:</strong> Check your inbox (and spam folder) for a verification email from <strong>noreply@bbaservices.org</strong>
+</div>
+
+<p style="color: #666; margin-bottom: 20px; line-height: 1.6;">
+    We've sent a verification email to your inbox. Click the link in the email to verify your account and gain full access to BBA Services.
+</p>
+
+<p style="color: #999; font-size: 14px;">
+    The verification link will expire in 24 hours. If you don't see the email, check your spam folder.
+</p>
+{% endblock %}

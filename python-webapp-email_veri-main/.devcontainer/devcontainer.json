@@ -1,0 +1,31 @@
+{
+  "name": "Python 3.12 with PostgreSQL",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/postgresql:1": {
+      "version": "latest"
+    }
+  },
+
+  "forwardPorts": [5000, 5432],
+  
+  "postCreateCommand": "bash -c 'python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && mkdir -p ~/pgdata && if [ ! -f ~/pgdata/PG_VERSION ]; then initdb -D ~/pgdata; fi'",
+  
+  "postStartCommand": "bash -c 'postgres -D ~/pgdata -p 5432 -k /tmp > ~/postgres.log 2>&1 & sleep 3 && psql -h localhost -U vscode -d postgres -c \"CREATE DATABASE IF NOT EXISTS email_verification_db;\" || true'",
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg"
+      ]
+    }
+  },
+
+  "remoteEnv": {
+    "DATABASE_URL": "postgresql://vscode@localhost:5432/email_verification_db"
+  }
+}

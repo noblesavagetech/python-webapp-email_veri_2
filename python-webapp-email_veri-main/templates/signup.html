@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Create Account - BBA Services{% endblock %}
+
+{% block content %}
+<h1>Create Your Account</h1>
+<p style="color: #666; margin-bottom: 25px;">Join BBA Services and get started today</p>
+
+<form method="POST" action="{{ url_for('auth.signup') }}">
+    <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com">
+    </div>
+    
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required minlength="8" placeholder="At least 8 characters">
+    </div>
+    
+    <div>
+        <label for="password_confirm">Confirm Password</label>
+        <input type="password" id="password_confirm" name="password_confirm" required minlength="8" placeholder="Re-enter your password">
+    </div>
+    
+    <button type="submit">Create Account</button>
+</form>
+
+<div class="link">
+    Already have an account? <a href="{{ url_for('auth.login') }}">Sign in</a>
+</div>
+
+<p style="text-align: center; margin-top: 20px; color: #999; font-size: 13px;">
+    By creating an account, you agree to receive verification emails from BBA Services.
+</p>
+{% endblock %}
